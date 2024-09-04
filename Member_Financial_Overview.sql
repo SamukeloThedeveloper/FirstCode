@@ -255,3 +255,36 @@ ORDER BY
     m.[surname]
 OFFSET (@startIndex) ROWS 
 FETCH NEXT 10 ROWS ONLY;
+
+
+
+
+
+/*   This query involves several Common Table Expressions (CTEs) for calculating different amounts, such as holiday, retirement, provident, and home loan amounts, as well as managing bank details, paid and prepared amounts, and other related information. The query combines these CTEs to produce a final result set that displays detailed financial information for members based on the company code.
+
+Key Sections of the Query:
+Holiday Amount Calculation (New_Balance_CTE):
+
+Summarizes the transaction amounts, filtering out specific transaction codes and statuses, and adds the last transaction balance.
+Retirement and Provident Amount Calculations (Max_Retirement_CTE and Max_Provident_CTE):
+
+Extracts the maximum auto increment values for retirement and provident funds within a specified date range.
+Additional Calculations (Max_Fndpay_CTE, Max_FC_Retirement_CTE, etc.):
+
+Similar logic is applied to other funds such as Fndpay, FC retirement, FC provident, and FC home loans.
+Bank Details (Bank_Details):
+
+Gathers bank details, including account numbers and branch codes, associated with each member.
+Main Query:
+
+Joins the main com, emp, and mem tables with the CTEs to calculate and retrieve the required financial data for each member.
+Uses conditional logic to determine the ID number format and performs grouping and rounding operations to aggregate the results.
+Pagination:
+
+Includes pagination logic using OFFSET and FETCH NEXT for handling large result sets.
+Considerations:
+Performance: Given the use of multiple CTEs and joins, ensure the underlying tables are properly indexed to optimize performance.
+Date Range: The query heavily relies on date ranges derived from a selected year (@SelectedYear), ensuring it captures the correct fiscal periods.
+Error Handling: Review and test to ensure the logic around COALESCE and conditional joins does not lead to unintended null or incorrect values.
+    
+*/
