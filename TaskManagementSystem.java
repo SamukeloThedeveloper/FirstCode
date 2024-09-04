@@ -20,7 +20,7 @@ class Task implements Serializable {
         this.completed = true;
     }
 
-    @Override
+    @Override  
     public String toString() {
         return "Task: " + title + "\nDescription: " + description + "\nCompleted: " + completed;
     }
