@@ -7,7 +7,7 @@ public class TemperatureConverter{
         bool exit = false;
         while(exit == false){
             Console.Write("1. for Celsius to Fahrenheit\n2. for Fahrenheit to Celsius\nEnter your option: ");
-            if(int.TryParse(Console.ReadLine(), out int option) && (option ==1 | option == 2)){
+            if(int.TryParse(Console.ReadLine(), out int option) && (option ==1 || option == 2)){
                 Console.Write("Enter the temperature: ");
                 if(double.TryParse(Console.ReadLine(), out double temp)){
                     if(option == 1){
@@ -18,7 +18,7 @@ public class TemperatureConverter{
                     
                     Console.WriteLine();
                     Console.Write("Do you want to convert another temperature?\n1.Yes\n2.No\nAnswer: ");
-                    if(int.TryParse(Console.ReadLine(), out int ans) && (ans ==1 | ans == 2)){
+                    if(int.TryParse(Console.ReadLine(), out int ans) && (ans ==1 || ans == 2)){
                         if(ans == 1){
                             exit = false;
                         }else{
